@@ -31,11 +31,15 @@ stages:
         version: '7.0.x'  # Use latest patch of .NET SDK 7.0
 
     # Build the .NET project in Release mode
-    - script: dotnet build --configuration Release
+    - script:
+        echo "Building the .NET Project" 
+        dotnet build --configuration Release
       displayName: 'Build Project'
 
     # Run the tests in the project
-    - script: dotnet test
+    - script: 
+        echo "Running tests..." 
+        dotnet test
       displayName: 'Run Tests'
 
     # Publish the compiled output to the specified folder
