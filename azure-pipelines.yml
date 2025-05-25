@@ -8,6 +8,7 @@ pool:
 
 # Define reusable variables for the pipeline
 variables:
+  System.Debug: true
   azureSubscription: 'AzureServiceConnection'       # Name of the Azure DevOps service connection
   appName: 'WebApp-DreamERA'                   # Name of the Azure Web App to deploy to
   publishDir: '$(Build.ArtifactStagingDirectory)/published'  # Output directory for published files
