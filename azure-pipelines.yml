@@ -10,7 +10,6 @@ pool:
 variables:
   System.Debug: true
   azureSubscription: 'AzureServiceConnection'       # Name of the Azure DevOps service connection
-  appName: 'WebApp-DreamERA'                   # Name of the Azure Web App to deploy to
   publishDir: '$(Build.ArtifactStagingDirectory)/published'  # Output directory for published files
 
 # Define the stages of the pipeline
@@ -72,5 +71,12 @@ stages:
             inputs:
               azureSubscription: $(azureSubscription)  # Uses the service connection
               appType: webApp                          # Specifies it is a Web App (not a function or container)
-              appName: $(appName)                      # Web App name in Azure
+              appName: WebApp-DreamERA          # Web App name in Azure
+              package: $(Pipeline.Workspace)/drop      # Path to the artifact folder to deploy
+
+          - task: AzureWebApp@1
+            inputs:
+              azureSubscription: $(azureSubscription)  # Uses the service connection
+              appType: webApp                          # Specifies it is a Web App (not a function or container)
+              appName: WebApp-DreamERA2                    # Web App name in Azure
               package: $(Pipeline.Workspace)/drop      # Path to the artifact folder to deploy
