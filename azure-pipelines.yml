@@ -31,11 +31,15 @@ stages:
         version: '7.0.x'  # Use latest patch of .NET SDK 7.0
 
     # Build the .NET project in Release mode
-    - script: dotnet build --configuration Release
+    - script: 
+        Write-Output "Building project in release mode..."
+        dotnet build --configuration Release
       displayName: 'Build Project'
 
     # Run the tests in the project
-    - script: dotnet test
+    - script:
+        echo "Running Test..." 
+        dotnet test
       displayName: 'Run Tests'
 
     # Publish the compiled output to the specified folder
@@ -45,6 +49,12 @@ stages:
     # Publish the output folder as an artifact named 'drop' to be used in the next stage
     - publish: $(publishDir)
       artifact: drop
+    
+    - script:
+        echo "Listening content of published directory"
+        ls -R $(publishDir)
+      displayName: "Verify Published Files..."
+
 
 # ----------------------- Deploy Stage -----------------------
 - stage: Deploy
@@ -62,6 +72,10 @@ stages:
           # Download the published artifact created in the Build stage
           - download: current
             artifact: drop
+          - script: 
+              echo "Listening content after artifact download..."
+              ls -R $(Pipeline.Workspace)/drop
+            displayName: "Verify Artifact Download"
 
           # Use the Azure Web App task to deploy the app to Azure
           - task: AzureWebApp@1
