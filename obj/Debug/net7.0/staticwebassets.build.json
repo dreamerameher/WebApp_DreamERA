@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "kbwPBAkyhwJeJLj5TIdUNOZR2R/INqmNzqbUfqHqyTI=",
+  "Hash": "+L648ycS1HTnHjrHnIW2g6pVFgNFc/JEEe0DARjxa8Q=",
   "Source": "WebApp_DreamERA",
   "BasePath": "_content/WebApp_DreamERA",
   "Mode": "Default",
@@ -83,6 +83,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\favicon.ico"
+    },
+    {
+      "Identity": "D:\\DreamERA\\CICD_Session\\WebApp_DreamERA\\wwwroot\\images\\meher-profile.png",
+      "SourceId": "WebApp_DreamERA",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\DreamERA\\CICD_Session\\WebApp_DreamERA\\wwwroot\\",
+      "BasePath": "_content/WebApp_DreamERA",
+      "RelativePath": "images/meher-profile.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\meher-profile.png"
     },
     {
       "Identity": "D:\\DreamERA\\CICD_Session\\WebApp_DreamERA\\wwwroot\\js\\site.js",
